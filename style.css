@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: gray;
+  color: white;
+  /* flexbox */
+
+  padding-bottom: 100px;
+}
+
+h1 {
+  margin-top: 10px;
+  margin-bottom: 0;
+  text-align: center;
+}
+a {
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  margin-top: 20px;
+  padding: 3px;
+  font-size: 20px;
+  font-family: "Roboto";
+}
+
+.container {
+  width: 100%;
+  min-width: 100vw;
+}
+
+.filter-container {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.filter {
+  width: 60%;
+  border-radius: 8px;
+  padding: 12px;
+  border: none;
+  font-size: 16px;
+}
+.filter:focus {
+  box-shadow: 0 0 8px #38a14b;
+  outline: none;
+}
+
+.peliculas-container {
+  width: 60%;
+  min-width: 60vh;
+  margin: 5% auto 10% auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1%;
+  justify-items: start;
+  align-items: start;
+}
+
+.peliculas-container .peliculas {
+  margin: 10px;
+  flex-wrap: wrap;
+}
+
+.peliculas-container .peliculas .portada {
+  width: 100%;
+  height: 100%;
+  justify-items: start;
+  align-items: start;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  filter: drop-shadow(0 0 5px black);
+  position: relative;
+  transition: all 300ms;
+}
+.peliculas-container .peliculas .portada:hover {
+  cursor: pointer;
+  transform: scale(1.15);
+}
+
+.peliculas-container .peliculas .titulo {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.pelicula-individual {
+  width: 100%;
+  min-width: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.loading {
+  width: 100%;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 50px;
+  transition: opacity 0.3s ease-in;
+}
+
+.loading.show {
+  opacity: 1;
+}
+
+.loading .circle {
+  background-color: #fff;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 5px;
+  animation: bounce 0.5s ease-in infinite;
+}
+.circle:nth-last-of-type(2) {
+  animation-delay: 0.1s;
+}
+
+.circle:nth-last-of-type(3) {
+  animation-delay: 0.2s;
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.no-exist {
+  width: 100%;
+  min-width: 100vw;
+  text-align: center;
+  font-size: 30px;
+  display: none;
+}
