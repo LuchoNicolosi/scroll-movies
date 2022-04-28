@@ -1,8 +1,8 @@
 //Selectores
 const filter = document.querySelector("#filter");
-const moviesContainer = document.querySelector(".peliculas-container");
+const moviesContainer = document.querySelector(".container");
+console.log(moviesContainer);
 const loading = document.querySelector(".loading");
-const movieAlone = document.querySelector(".pelicula-individual");
 const noExist = document.querySelector(".no-exist");
 //globales
 
@@ -53,7 +53,7 @@ const getPost = async () => {
 
 const filterPost = ({ target }) => {
   const value = target.value.toUpperCase();
-  const movies = document.querySelectorAll(".peliculas");
+  const movies = document.querySelectorAll(".pelicula");
 
   let acumFlex = 0;
   for (let movie of movies) {
@@ -78,7 +78,7 @@ const renderMovie = (movies) => {
   const moviesHTML = movies.results
     .map((movie, index) => {
       return `
-      <div class="peliculas" >
+      <div class="pelicula" >
         <img class="portada" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" data-id=${index}/>
         <h3 class="titulo">${movie.title}</h3>
       </div>
@@ -89,24 +89,24 @@ const renderMovie = (movies) => {
   moviesContainer.innerHTML += moviesHTML;
 };
 
-// const renderUniqueMovie = (movies) => {
-//   moviesContainer.style.display = "none";
-//   const movieHTML = document.createElement("div");
-//   movieHTML.classList.add(".pelicula")
-//   movieHTML.innerHTML = `
-//      <h3 class="titulito">${movies.title}</h3>
-//       <img class="portadita" src="https://image.tmdb.org/t/p/w500/${movies.poster_path}" />
-//       <p class="articulito">${movies.overview}</p>
-//   `;
+const renderUniqueMovie = (movies) => {
+  moviesContainer.style.display = "none";
+  const movieHTML = document.createElement("div");
+  movieHTML.classList.add(".pelicula");
+  movieHTML.innerHTML = `
+     <h3 class="titulito">${movies.title}</h3>
+      <img class="portadita" src="https://image.tmdb.org/t/p/w500/${movies.poster_path}" />
+      <p class="articulito">${movies.overview}</p>
+  `;
 
-//   movieAlone.appendChild(movieHTML);
+  movieAlone.appendChild(movieHTML);
 
-//   if (filter.addEventListener("input", filterPost)) {
-//     console.log(filter);
-//     movieHTML.removeChild(movieHTML);
-//     moviesContainer.style.display = "block";
-//   }
-// };
+  if (filter.addEventListener("input", filterPost)) {
+    console.log(filter);
+    movieHTML.removeChild(movieHTML);
+    moviesContainer.style.display = "block";
+  }
+};
 
 const renderLoading = (movies) => {
   loading.classList.add("show");
