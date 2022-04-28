@@ -70,7 +70,7 @@ a {
 .peliculas-container .peliculas .portada {
   width: 100%;
   height: auto;
-  max-width: 270px;
+  min-width: 100px;
   justify-items: start;
   align-items: start;
   margin-bottom: 10px;
